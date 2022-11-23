@@ -1,0 +1,85 @@
+.bodyMega {
+    display: flex;
+}
+.bodyMega .artigo {
+    width: 70%;
+}
+.bodyMega .anuncios {
+    border: black solid 1px;
+    width: 300px;
+}
+.maxDimensao {
+    margin: auto;
+    max-width: 1300px;
+}
+.jogarImage {
+    text-align: center;
+    margin: auto;
+}
+.imgL > img{
+    width: 3300px;
+   
+}
+.imgContato > img{
+    width: 100%;
+    height: 100%;
+}
+.divBolas {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    /* border: black solid 1px; */
+}
+.bolas {
+    background-color: rgb(0, 98, 44);
+    box-shadow: black 0px 2px 5px 0px,  inset -10px -10px 10px rgb(7, 102, 0), inset 3px 3px 5px rgb(177, 255, 181);
+    
+    margin: auto;
+    justify-content: space-between;
+    width: 50px;
+    color: white;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    font-size: 25px;
+    
+}
+.apresentacaoMega{
+    display: flex;
+    
+}
+.apresentacaoMega > div {
+    width: 50%;
+    margin-right: 10px;
+}
+.dataMega {
+    /* border: black solid 1px; */
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+}
+.resultados {
+    background-color: rgb(138, 213, 138);
+}
+.infoResult {
+    display: flex;
+    color: white;
+    padding: 0px 15px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    height: 50px;
+}
+
+.proximoP {
+    background-color: gold;
+    text-align: center;
+    padding: 3em;
+}

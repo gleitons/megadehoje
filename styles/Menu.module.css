@@ -1,0 +1,42 @@
+
+.menu {
+    display: flex;
+    border-bottom: 1px solid rgb(221, 220, 220);
+    
+}
+.menuFront {
+    width: 1300px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.menuItens {
+    justify-content: space-between;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    
+
+}
+.logoImg {
+    background-color: rgb(255, 255, 255);
+    padding: .1em;
+    border-radius: 8px;
+}
+.menuItens li {
+    margin: 0em .8em ;
+    border-radius: 5px;
+    background: rgb(0, 68, 0);
+    color: white;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 5px;
+    transition: 200ms;
+}
+.menuItens li:hover {
+    background: rgb(0, 95, 0);
+   
+    box-shadow: rgb(101, 250, 101) 0px 0px 10px 0px;
+}
