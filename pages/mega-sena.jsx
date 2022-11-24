@@ -7,6 +7,7 @@ import Bola from '../Components/Bola';
 import Head from 'next/head';
 import MegacomDepoimentos from '../Components/MegacomDepoimentos';
 import MegaSenaPalpite from '../Components/mega-sena/MegaSenaPalpite';
+import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
 
 
@@ -91,6 +92,19 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         </div>
 
                     </div>
+
+                    
+
+                    <MegaSenaResultado
+                        nome={megaSena.nome}
+                        loteria={megaSena.loteria}
+                        proxConcurso={megaSena.proxConcurso}
+                        dataProxConcurso={megaSena.dataProxConcurso}
+                        acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
+                        local = {megaSena.local}
+                        concurso = {megaSena.concurso}
+                    />
+
 
                     <MegaSenaPalpite
                         nome={megaSena.nome}
