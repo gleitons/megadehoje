@@ -88,3 +88,13 @@
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.249) 0px 0px 30px 0px;
 }
+
+.fundoDep {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+  }
+  .depoCity {
+    background-color: red;
+  }
+  

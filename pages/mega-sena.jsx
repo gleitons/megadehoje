@@ -103,6 +103,10 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
                         local = {megaSena.local}
                         concurso = {megaSena.concurso}
+                        dezenas = {megaSena.dezenas}
+                        premiacoes = {megaSena.premiacoes}
+                        acumulou = {megaSena.acumulou}
+                        data = {megaSena.data}
                     />
 
 

@@ -1,0 +1,22 @@
+.depoimentoOnly {
+  margin-top: 10px;
+  border-left: rgb(114, 114, 114) solid 5px;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 62%) 0px 0px 5px 0px;
+  padding: 2px 20px 5px 20px;
+}
+.cidade {
+  display: flex;
+  align-items: center;
+  
+}
+.cidade > p {
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+  
+}
+.cidade > span {
+  font-style: italic;
+  font-weight: bold;
+}

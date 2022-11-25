@@ -93,7 +93,7 @@ export default function MegaSenaPalpite({ nome, loteria, proxConcurso, dataProxC
 
                     <h2 className={styles.concu}> Palpite {loteria} Concurso: <strong>{proxConcurso}</strong></h2>
 
-                    <p className={`${styles.dataSorteio} ${styles.espaco}`}> <p>Palpite 01:</p>
+                    <p className={`${styles.dataSorteioPalpite} ${styles.espaco}`}> <p>Palpite 01:</p>
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
