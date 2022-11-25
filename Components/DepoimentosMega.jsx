@@ -1,5 +1,5 @@
 import styles from '/styles/Depoiments.module.css'
-import { Props } from 'next/script'
+
 
 
 export default function DepoimentosMega({ Cidade, Depoimento, Nome }) {

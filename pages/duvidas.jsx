@@ -13,7 +13,7 @@ export default function Duvidas() {
                
                 
                     <div className={styles.imgContato}>
-                        <Image src={contato} />
+                        <Image src={contato} alt={"Mega de hoje contato"}/>
                     </div>
                    
                

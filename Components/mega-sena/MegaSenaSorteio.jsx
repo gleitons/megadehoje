@@ -1,6 +1,5 @@
 import styles from '/styles/Banners.module.css'
 import logoMega from '/public/img/logo-mega-de-hoje.svg'
-import Money from '/public/img/imagem-resultado-megasena.png'
 import apresenta from '/public/img/apresenta-mega-jogo.png'
 
 import Image from 'next/image'
@@ -21,7 +20,7 @@ export default function MegaSenaSorteio({ nome, loteria, proxConcurso, dataProxC
     function mesEmIngles(mes) {
         const meses = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
         const mesref = meses[mes - 1]
-        console.log(meses[mes])
+       
         return mesref;
 
     }
@@ -32,12 +31,12 @@ export default function MegaSenaSorteio({ nome, loteria, proxConcurso, dataProxC
                 <h2 className={styles.marcadagua}>megadehoje.com</h2>
                 <div className={styles.divTop}>
                     <div className={styles.logoM}>
-                        <Image src={logoMega} />
+                        <Image src={logoMega} alt={"Mega de hoje"} />
 
                     </div>
                     <div>
                         <div className={styles.sorteioApresentacao}>
-                            <Image className={styles.apresenta} src={apresenta} />
+                            <Image className={styles.apresenta} src={apresenta} alt={"Mega de hoje"} />
                             <div>
                                 <p>Proximo sorteio da <strong>{nome}</strong>, não deixe de ralizar sua aposta online!</p>
                                 <button className={styles.button88} role="button">CLIQUE 2X E FAÇA SUA APOSTA</button>

@@ -22,7 +22,7 @@
     background-repeat: repeat;
 }
 .espaco {
-    margin-top: -36px;
+    margin-top: 10px;
     display: flex;
     gap: 10px;
     width: 100%;
@@ -42,7 +42,7 @@
     margin: auto;
     display: flex;
 }
-.sorteioApresentacao div p {
+.sorteioApresentacao div  {
     font-size: 1.5em;
     font-weight: 300;
 }
@@ -233,7 +233,7 @@
 .valorEstimadoPalpite {
     color: red;
     font-size: 2em;
-    margin-top: -20px;
+    margin-top: 20px;
     margin-bottom: -10px;
 }
 .valorEstimadoPalpiteR {

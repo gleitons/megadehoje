@@ -1,11 +1,10 @@
 import styles from '../styles/Body.module.css'
 import Anuncios from "../Components/Anuncios"
-import TodosDepoimentos from "../Components/TodosDepoimentos";
 import MegaSenaSorteio from '../Components/mega-sena/MegaSenaSorteio';
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Bola from '../Components/Bola';
 import Head from 'next/head';
-import MegacomDepoimentos from '../Components/MegacomDepoimentos';
+import TodosDepoimentos from '../Components/TodosDepoimentos';
 import MegaSenaPalpite from '../Components/mega-sena/MegaSenaPalpite';
 import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
@@ -22,11 +21,7 @@ export async function getStaticProps() {
 
     const Anterior = (data.concurso) - 1;
     const bola1 = data.dezenas[0];
-    // if (megaSena.acumulou == true) {
-    //     var acumulou = 'ACUMULOU'
-    // } else {
-    //     var acumulou = 'TEVE VENCEDOR(A)'
-    // }
+    
     return {
         props: {
             megaSena: data, Anterior, bola1
@@ -119,23 +114,17 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                     />
 
 
-
                     <MegaSenaSorteio
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
                         proxConcurso={megaSena.proxConcurso}
                         dataProxConcurso={megaSena.dataProxConcurso}
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
-                    />
-
-                 
+                    />              
 
 
 
-
-
-
-                    <MegacomDepoimentos />
+                    <TodosDepoimentos />
 
 
 

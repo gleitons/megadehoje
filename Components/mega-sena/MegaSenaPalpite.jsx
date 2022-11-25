@@ -1,6 +1,5 @@
 import styles from '/styles/Banners.module.css'
-import logoMega from '/public/img/logo-mega-de-hoje.svg'
-import Money from '/public/img/imagem-resultado-megasena.png'
+import logoMega from '/public/img/logo-mega-de-hoje.svg'    
 import apresenta from '/public/img/palpite-loteria-nacional.webp'
 import Bola from '../Bola.jsx'
 
@@ -93,7 +92,7 @@ export default function MegaSenaPalpite({ nome, loteria, proxConcurso, dataProxC
 
                     <h2 className={styles.concu}> Palpite {loteria} Concurso: <strong>{proxConcurso}</strong></h2>
 
-                    <p className={`${styles.dataSorteioPalpite} ${styles.espaco}`}> <p>Palpite 01:</p>
+                    <div className={`${styles.dataSorteioPalpite} ${styles.espaco}`}> <p>Palpite 01:</p>
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
@@ -101,25 +100,25 @@ export default function MegaSenaPalpite({ nome, loteria, proxConcurso, dataProxC
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
 
-                    </p>
+                    </div>
 
-                    <p className={`${styles.dataSorteio} ${styles.espaco}`}> <p>Palpite 02:</p>
+                    <div className={`${styles.dataSorteio} ${styles.espaco}`}> <p>Palpite 02:</p>
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
-                    </p>
+                    </div>
 
-                    <p className={`${styles.dataSorteio} ${styles.espaco}`}> <p>Palpite 03:</p>
+                    <div className={`${styles.dataSorteio} ${styles.espaco}`}> <p>Palpite 03:</p>
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
                         <Bola bol={getRandomInt(1, 60)} />
-                    </p>
+                    </div>
 
 
 

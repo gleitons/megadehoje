@@ -1,8 +1,6 @@
 import styles from '../styles/Body.module.css'
 import Anuncios from "../Components/Anuncios"
-import Image from "next/image"
-import Link from "next/link"
-import logoMega from '/public/img/logo-mega-de-hoje.svg'
+
 
 
 export default function Home() {
