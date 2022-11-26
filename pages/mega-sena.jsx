@@ -104,7 +104,6 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         data = {megaSena.data}
                     />
 
-
                     <MegaSenaPalpite
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
@@ -112,8 +111,6 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         dataProxConcurso={megaSena.dataProxConcurso}
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
                     />
-
-
                     <MegaSenaSorteio
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
@@ -122,18 +119,7 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
                     />              
 
-
-
                     <TodosDepoimentos />
-
-
-
-
-
-
-
-
-
 
 
                 </div>

@@ -12,7 +12,7 @@ export default function Menutop({children}) {
             <div className={styles.menu}>
                 <div className={styles.menuFront}>
                     <Link href='/'>
-                        <Image className={styles.logoImg} src={logoMega}/>
+                        <Image className={styles.logoImg} src={logoMega} alt={'Mega de Hoje'}/>
                     </Link>
                     <nav>
                         <ul className={styles.menuItens}>

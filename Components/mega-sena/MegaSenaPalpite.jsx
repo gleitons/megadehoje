@@ -73,12 +73,12 @@ export default function MegaSenaPalpite({ nome, loteria, proxConcurso, dataProxC
                 <h2 className={styles.marcadagua}>megadehoje.com</h2>
                 <div className={styles.divTop}>
                     <div className={styles.logoM}>
-                        <Image src={logoMega} />
+                        <Image src={logoMega} alt = {"Logo mega de hoje"}/>
 
                     </div>
                     <div>
                         <div className={styles.sorteioApresentacao}>
-                            <Image className={styles.apresenta} src={apresenta} />
+                            <Image className={styles.apresenta} src={apresenta} alt = {"Logo mega de hoje"} />
                             <div>
                                 <p><strong>Palpite da {nome}</strong>, Selecionamos vários palpites para você realizar o seu jogo!</p>
                                 <button className={styles.button88} role="button">CLIQUE 2X E FAÇA SUA APOSTA</button>

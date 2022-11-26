@@ -74,20 +74,23 @@ export default function MegaSenaResultado({ nome, loteria, proxConcurso, dataPro
 
     return (
         <>
+            <h1>Resultado da {loteria} {concurso} dia {data} - {diaConcurso}</h1>
+            <p>Sorteio da {loteria} aconteceu hoje, {data}, confira agora mesmo o resultado da {loteria} {concurso}.</p>
+            <h2>Como ficou o resultado da loteria nacional hoje</h2>
+            <p>É isso mesmo, saiu o resultado do concurso {concurso}, realizado a partir das 20:00 hs, dia {data}, {diaConcurso}, as dezenas sorteadas foram: <strong>{dezenas[0]} - {dezenas[1]} - {dezenas[2]} - {dezenas[3]} - {dezenas[4]} - {dezenas[5]}</strong>. Foram {acumulaO[0].vencedores} apostas vencedoras da sena, cada um vai receber o valor de R$ {acumulaO[0].premio} de reais, {acumulaO[1].vencedores} vencedores(as) que conseguiram acertar 5 números na (quina) e levaram cada um R$ {acumulaO[1].premio} de reais. Já com 4 acertos (quadra) foram {acumulaO[2].vencedores} apostas ganhadoras, ficando cada um com R$ {acumulaO[2].premio} reais. Confira agora mesmo o resultado da {loteria} {concurso} dia {data} - {diaConcurso}.</p>
             <div className={styles.bannerInstaPalpite}>
                 <h2 className={styles.marcadagua}>megadehoje.com</h2>
                 <div className={styles.divTopResult}>
                     <div className={styles.logoMR}>
-                        <Image src={logoMega} alt={"Mega de hoje"}/>
+                        <Image src={logoMega} alt={"Mega de hoje"} />
                         <div>
-                            <h2>RESULTADO DA MEGA SENA {concurso}</h2>
+                            <h2>RESULTADO DA<span className={styles.Maiuscula}> {loteria}</span> {concurso}</h2>
                             <h3>Sorteio {diaConcurso}, {data}</h3>
                         </div>
 
                     </div>
                     <div>
                         <div className={styles.sorteioApresentacaoResult}>
-                            {/* <Image className={styles.apresenta} src={apresenta} /> */}
                             <div>
                                 <p><strong>Resultado da {nome}</strong></p>
                                 <div className={`${styles.espaco}`}>
@@ -135,25 +138,27 @@ export default function MegaSenaResultado({ nome, loteria, proxConcurso, dataPro
                             <tr>
                                 <td>Sena</td>
                                 <td>{acumulaO[0].vencedores}</td>
-                                <td>{acumulaO[0].premio}</td>
+                                <td>R$ {acumulaO[0].premio}</td>
                             </tr>
                             <tr>
                                 <td>Quina</td>
                                 <td>{acumulaO[1].vencedores}</td>
-                                <td>{acumulaO[1].premio}</td>
+                                <td>R$ {acumulaO[1].premio}</td>
                             </tr>
                             <tr>
                                 <td>Quadra</td>
                                 <td>{acumulaO[2].vencedores}</td>
-                                <td>{acumulaO[2].premio}</td>
+                                <td>R$ {acumulaO[2].premio}</td>
                             </tr>
-                          
+
                         </tbody>
                     </table>
                 </div>
 
 
             </div>
+            <h2>Como jogar na Mega-sena</h2>
+            <p>A Mega-Sena paga milhões para o acertador dos 6 números sorteados. Ainda é possível ganhar prêmios ao acertar 4 ou 5 números dentre os 60 disponíveis no volante de apostas. Para realizar o sonho de ser o próximo milionário, você deve marcar de 6 a 15 números do volante, podendo deixar que o sistema escolha os números para você (Surpresinha) e/ou concorrer com a mesma aposta por 2, 4 ou 8 concursos consecutivos (Teimosinha). APOSTE ONLINE</p>
             <div>
                 <p>@megadehoje - Sentimento Milionário para ganhar na <strong>{nome}</strong> {proxConcurso}</p>
                 <p>https://megadehoje.com</p>
@@ -178,6 +183,7 @@ export default function MegaSenaResultado({ nome, loteria, proxConcurso, dataPro
                 <p>#leidaatracao</p>
                 <p>#leidaatração</p>
             </div>
+            
         </>
     )
 }

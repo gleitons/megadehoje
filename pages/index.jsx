@@ -1,6 +1,6 @@
 import styles from '../styles/Body.module.css'
 import Anuncios from "../Components/Anuncios"
-
+import SentimentoMilionario from '../Components/SentimentoMilionario'
 
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <div className={styles.bodyMega}>
             <div className={styles.artigo}>
+              <SentimentoMilionario />
                 <div>
                   <div>
                     <h2>Mega Sena</h2>
