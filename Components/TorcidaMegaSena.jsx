@@ -1,26 +1,26 @@
 
 import styles from '/styles/Menu.module.css'
 import Image from 'next/image'
-import sentimentomilionario01 from '/public/img/sentimento-milionario/sentimento-milionario-01.gif'
-import sentimentomilionario02 from '/public/img/sentimento-milionario/sentimento-milionario-02.gif'
-import sentimentomilionario03 from '/public/img/sentimento-milionario/sentimento-milionario-03.gif'
-import sentimentomilionario04 from '/public/img/sentimento-milionario/sentimento-milionario-04.gif'
-import sentimentomilionario05 from '/public/img/sentimento-milionario/sentimento-milionario-05.gif'
-import sentimentomilionario06 from '/public/img/sentimento-milionario/sentimento-milionario-06.gif'
-import sentimentomilionario07 from '/public/img/sentimento-milionario/sentimento-milionario-07.gif'
-import sentimentomilionario08 from '/public/img/sentimento-milionario/sentimento-milionario-08.gif'
-import sentimentomilionario09 from '/public/img/sentimento-milionario/sentimento-milionario-09.gif'
-import sentimentomilionario10 from '/public/img/sentimento-milionario/sentimento-milionario-10.gif'
-import sentimentomilionario11 from '/public/img/sentimento-milionario/sentimento-milionario-11.gif'
-import sentimentomilionario12 from '/public/img/sentimento-milionario/sentimento-milionario-12.gif'
+import sentimentomilionario01 from '/public/img/sorteio-mega/sorteio_01.jpg'
+import sentimentomilionario02 from '/public/img/sorteio-mega/sorteio_02.jpg'
+import sentimentomilionario03 from '/public/img/sorteio-mega/sorteio_03.jpg'
+import sentimentomilionario04 from '/public/img/sorteio-mega/sorteio_04.jpg'
+import sentimentomilionario05 from '/public/img/sorteio-mega/sorteio_05.jpg'
+import sentimentomilionario06 from '/public/img/sorteio-mega/sorteio_06.jpg'
+import sentimentomilionario07 from '/public/img/sorteio-mega/sorteio_07.jpg'
+import sentimentomilionario08 from '/public/img/sorteio-mega/sorteio_08.jpg'
+import sentimentomilionario09 from '/public/img/sorteio-mega/sorteio_09.jpg'
+import sentimentomilionario10 from '/public/img/sorteio-mega/sorteio_10.jpg'
+import sentimentomilionario11 from '/public/img/sorteio-mega/sorteio_11.jpg'
+import sentimentomilionario12 from '/public/img/sorteio-mega/sorteio_12.jpg'
 export default function SentimentoMilionario() {
-    const w = 220;
-    const h = 120;
+    const w = 128;
+    const h = 93;
     return (
         <>
             <div>
-                <div>
-                    <table className = {styles.tabelaSentimento} id="Tabela_01" width="960" height="361" border="0" cellpadding="0" cellspacing="0">
+                <div className={styles.centralizaImg}>
+                    <table className = {styles.tabelaSentimentomega} id="Tabela_01" width="473" height="268" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
                                 <Image src={sentimentomilionario01} width={w} height={h} alt="Sentimento Milionario" />

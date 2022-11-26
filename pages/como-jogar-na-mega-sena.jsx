@@ -5,6 +5,7 @@ import styles from '../styles/Body.module.css'
 import Anuncios from "../Components/Anuncios"
 import TodosDepoimentos from "../Components/TodosDepoimentos";
 import Link from "next/link"
+import TorcidaMegaSena from '../Components/TorcidaMegaSena'
 export default function Comojogar() {
     return (
         <>
@@ -13,6 +14,7 @@ export default function Comojogar() {
                 <h1>Como Jogar na Mega-Sena</h1>
                 <h2>Dicas e cursos de como jogar na loteria federal online</h2>
                 <p>Jogar nas loterias Online é seguro. Você pode realizar boloes, salvar jogos, analisar e muito mais, tudo isso no conforto de sua casa, sem enfrentar as terríveis filas das lotéricas. Vamos ter dicas de como jogar na loteria federal totalmente online.</p>
+                <TorcidaMegaSena />
                 <div className = {styles.jogarImage}>
                     <Image src={jogarOnline} alt={"Mega de hoje"} />
                     <Image src={jogarOnline2} alt={"Mega de hoje"} />
