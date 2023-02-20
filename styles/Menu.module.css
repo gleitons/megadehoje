@@ -30,6 +30,10 @@
     justify-content: space-between;
     margin: auto;
 }
+.menuI {
+    display: none;
+}
+
 .menuItens {
     justify-content: space-between;
     display: flex;
@@ -57,4 +61,33 @@
     background: rgb(0, 95, 0);
    
     box-shadow: rgb(101, 250, 101) 0px 0px 10px 0px;
+}
+
+@media (max-width: 768px) {
+    .menuFront nav {
+        display: none;
+        border: black solid 1px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        font-size: 2em;
+        background-color:rgb(31, 143, 11);
+    }
+    .menuFront nav ul {
+        display: block;
+        
+    }
+    .menuFront nav ul li{
+       
+        margin: 10px auto;
+    }
+
+    .menuI {
+        display: block;
+    }
+    @keyframes animaMe {
+        
+    }
 }

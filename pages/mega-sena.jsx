@@ -13,9 +13,10 @@ import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
 
 export async function getStaticProps() {
-    const URL_Api = 'https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest'
+    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest";
 
     const api = await fetch(URL_Api);
+    console.log(api)
     const data = await api.json();
 
 
@@ -74,7 +75,7 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                                             <Bola bol={megaSena.dezenas[4]} />
                                             <Bola bol={megaSena.dezenas[5]} />
                                         </div>
-                                        <h2>{Anterior}</h2>
+                                        <h5>acesse megadehoje.com</h5>
                                         <h3>Próximo Concurso: {megaSena.acumuladaProxConcurso}</h3>
                                     </div>
                                 </div>
@@ -104,7 +105,7 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         data = {megaSena.data}
                     />
 
-                    <MegaSenaPalpite
+                    {/* <MegaSenaPalpite
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
                         proxConcurso={megaSena.proxConcurso}
@@ -119,7 +120,7 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
                     />              
 
-                    <TodosDepoimentos />
+                    <TodosDepoimentos /> */}
 
 
                 </div>

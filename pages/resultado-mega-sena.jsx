@@ -1,20 +1,19 @@
 import styles from '../styles/Body.module.css'
 import Anuncios from "../Components/Anuncios"
-import MegaSenaSorteio from '../Components/quina/quinaSorteio';
+import MegaSenaSorteio from '../Components/mega-sena/MegaSenaSorteio';
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Bola from '../Components/Bola';
 import Head from 'next/head';
 import TodosDepoimentos from '../Components/TodosDepoimentos';
-import MegaSenaPalpite from '../Components/quina/quinaPalpite';
-import MegaSenaResultado from '../Components/quina/quinaResultado';
-import Link from 'next/link';
+import MegaSenaPalpite from '../Components/mega-sena/MegaSenaPalpite';
+import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
 
 
 
 
 export async function getStaticProps() {
-    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/quina/latest";
+    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest";
 
     const api = await fetch(URL_Api);
     console.log(api)
@@ -23,7 +22,7 @@ export async function getStaticProps() {
 
     const Anterior = (data.concurso) - 1;
     const bola1 = data.dezenas[0];
-
+    
     return {
         props: {
             megaSena: data, Anterior, bola1
@@ -46,19 +45,17 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
             </Head>
             <div className={styles.bodyMega}>
                 <div className={styles.artigo}>
-                    <h1>Quina</h1>
+                    <h1>Mega-Sena</h1>
                     <div className={styles.apresentacaoMega}>
                         <div className={styles.info}>
-                            <h2>Quina</h2>
-                            <p>Concorra a prêmios grandiosos com a Quina: basta marcar de 5 a 15 números dentre os 80 disponíveis no volante e torcer. Caso prefira o sistema pode escolher os números para você através da Surpresinha.
-
-                                Ganham prêmios os acertadores de 2, 3, 4 ou 5 números. Você ainda pode concorrer com a mesma aposta por 3, 6, 12, 18 ou 24 concursos consecutivos com a Teimosinha.</p>
-                            <p>O site<Link href="/lotofacil"> megadehoje.com </Link>fornece os últimos resultados assim que estão disponíveis, informações sobre quando você pode esperar o próximo grande evento e tudo o mais que precisa saber do jogo.</p>
-                            <h3>Resultados da Quina</h3>
-                            <p>Você encontrará os últimos resultados da lotofácil logo após a realização de cada sorteio. Descubra os números vencedores e se o prêmio principal foi ganho ou não. Vá para a página de Resultados para ver quantos jogadores ganharam em cada categoria.</p>
+                            <h2>Mega Sena</h2>
+                            <p>A Mega Sena é a maior loteria do Brasil e uma das maiores do mundo, com um prêmio principal que pode valer centenas de milhões de reais. Os sorteios acontecem às quartas e sábados em semanas regulares, mas também tem uma série de sorteios especiais e Mega Semanas ao longo do ano.</p>
+                            <p>O site MegaSena.com fornece os últimos resultados assim que estão disponíveis, informações sobre quando você pode esperar o próximo grande evento e tudo o mais que precisa saber do jogo.</p>
+                            <h3>Resultados da Mega Sena</h3>
+                            <p>Você encontrará os últimos resultados da Mega Sena logo após a realização de cada sorteio. Descubra os números vencedores e se o prêmio principal foi ganho ou não. Vá para a página de Resultados para ver quantos jogadores ganharam em cada categoria.</p>
                         </div>
                         <div  >
-                            <div className={styles.resultadosQuina}>
+                            <div className={styles.resultados}>
                                 <div className={styles.infoResult}>
                                     <h2>Último resultado</h2>
                                     <h3>Concurso: {megaSena.concurso}</h3>
@@ -70,14 +67,15 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                                             <FaRegCalendarAlt />
                                             <p>{megaSena.data}</p>
                                         </div>
-                                        <div className={styles.divBolasQuina}>
+                                        <div className={styles.divBolas}>
                                             <Bola bol={bola1} />
                                             <Bola bol={megaSena.dezenas[1]} />
                                             <Bola bol={megaSena.dezenas[2]} />
                                             <Bola bol={megaSena.dezenas[3]} />
                                             <Bola bol={megaSena.dezenas[4]} />
+                                            <Bola bol={megaSena.dezenas[5]} />
                                         </div>
-                                        <h5>confira agora mesmo o resultado do seu jogo</h5>
+                                        <h4>O concurso anterior foi o {Anterior}</h4>
                                         <h3>Próximo Concurso: {megaSena.acumuladaProxConcurso}</h3>
                                     </div>
                                 </div>
@@ -91,7 +89,7 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
 
                     </div>
 
-
+                    
 
                     <MegaSenaResultado
                         nome={megaSena.nome}
@@ -99,15 +97,15 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         proxConcurso={megaSena.proxConcurso}
                         dataProxConcurso={megaSena.dataProxConcurso}
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
-                        local={megaSena.local}
-                        concurso={megaSena.concurso}
-                        dezenas={megaSena.dezenas}
-                        premiacoes={megaSena.premiacoes}
-                        acumulou={megaSena.acumulou}
-                        data={megaSena.data}
+                        local = {megaSena.local}
+                        concurso = {megaSena.concurso}
+                        dezenas = {megaSena.dezenas}
+                        premiacoes = {megaSena.premiacoes}
+                        acumulou = {megaSena.acumulou}
+                        data = {megaSena.data}
                     />
 
-                    {/* <MegaSenaPalpite
+                    <MegaSenaPalpite
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
                         proxConcurso={megaSena.proxConcurso}
@@ -120,9 +118,9 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                         proxConcurso={megaSena.proxConcurso}
                         dataProxConcurso={megaSena.dataProxConcurso}
                         acumuladaProxConcurso={megaSena.acumuladaProxConcurso}
-                    />
+                    />              
 
-                    <TodosDepoimentos /> */}
+                    <TodosDepoimentos />
 
 
                 </div>

@@ -77,8 +77,27 @@ export default function MegaSenaResultado({ nome, loteria, proxConcurso, dataPro
             <h1>Resultado da {loteria} {concurso} dia {data} - {diaConcurso}</h1>
             <p>Sorteio da {loteria} aconteceu hoje, {data}, confira agora mesmo o resultado da {loteria} {concurso}.</p>
             <h2>Como ficou o resultado da loteria nacional hoje</h2>
-            <p>É isso mesmo, saiu o resultado do concurso {concurso}, realizado a partir das 20:00 hs, dia {data}, {diaConcurso}, as dezenas sorteadas foram: <strong>{dezenas[0]} - {dezenas[1]} - {dezenas[2]} - {dezenas[3]} - {dezenas[4]} - {dezenas[5]}</strong>. Foram {acumulaO[0].vencedores} apostas vencedoras da sena, cada um vai receber o valor de R$ {acumulaO[0].premio} de reais, {acumulaO[1].vencedores} vencedores(as) que conseguiram acertar 5 números na (quina) e levaram cada um R$ {acumulaO[1].premio} de reais. Já com 4 acertos (quadra) foram {acumulaO[2].vencedores} apostas ganhadoras, ficando cada um com R$ {acumulaO[2].premio} reais. Confira agora mesmo o resultado da {loteria} {concurso} dia {data} - {diaConcurso}.</p>
-            {/* <div className={styles.bannerInstaPalpite}>
+            <p>É isso mesmo, saiu o resultado do concurso {concurso}, realizado a partir das 20:00 hs, dia {data}, {diaConcurso}, as dezenas sorteadas foram: 
+            <strong><li>{dezenas[0]}</li> 
+            <li>{dezenas[1]}</li> 
+            <li>{dezenas[2]}</li> 
+            <li>{dezenas[3]}</li> 
+            <li>{dezenas[5]}</li> 
+            <li>{dezenas[6]}</li> 
+            <li>{dezenas[7]}</li> 
+            <li>{dezenas[8]}</li> 
+            <li>{dezenas[9]}</li> 
+            <li>{dezenas[10]}</li> 
+            <li>{dezenas[11]}</li> 
+            <li>{dezenas[12]}</li> 
+            <li>{dezenas[13]}</li> 
+            <li>{dezenas[14]}</li>
+            </strong>
+            Foram {acumulaO[0].vencedores} apostas vencedoras com 15 números, onde vai receber o valor de R$ {acumulaO[0].premio} de reais, {acumulaO[1].vencedores} vencedores(as) que conseguiram acertar 14 números e levaram R$ {acumulaO[1].premio} de reais. Já com 13 acertos foram {acumulaO[2].vencedores} apostas ganhadoras, ficando com R$ {acumulaO[2].premio} reais. 
+            <li>12 acertos: {acumulaO[3].vencedores} apostas ganhadoras, ficando com R$ {acumulaO[3].premio} reais. </li>
+            <li>11 acertos: {acumulaO[4].vencedores} apostas ganhadoras, ficando com R$ {acumulaO[4].premio} reais. </li>
+            Confira agora mesmo o resultado da {loteria} {concurso} dia {data} - {diaConcurso}.</p>
+            <div className={styles.bannerInstaPalpite}>
                 <h2 className={styles.marcadagua}>megadehoje.com</h2>
                 <div className={styles.divTopResult}>
                     <div className={styles.logoMR}>
@@ -156,7 +175,7 @@ export default function MegaSenaResultado({ nome, loteria, proxConcurso, dataPro
                 </div>
 
 
-            </div> */}
+            </div>
             <h2>Como jogar na Mega-sena</h2>
             <p>A Mega-Sena paga milhões para o acertador dos 6 números sorteados. Ainda é possível ganhar prêmios ao acertar 4 ou 5 números dentre os 60 disponíveis no volante de apostas. Para realizar o sonho de ser o próximo milionário, você deve marcar de 6 a 15 números do volante, podendo deixar que o sistema escolha os números para você (Surpresinha) e/ou concorrer com a mesma aposta por 2, 4 ou 8 concursos consecutivos (Teimosinha). APOSTE ONLINE</p>
             <div>
