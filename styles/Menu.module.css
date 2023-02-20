@@ -62,8 +62,23 @@
    
     box-shadow: rgb(101, 250, 101) 0px 0px 10px 0px;
 }
+.iconFechar {
+    display: none;
+}
+.iconA {
+    display: none;
+}
 
 @media (max-width: 768px) {
+    .iconA {
+        display: block;
+        font-size: 1.5em;
+    }
+    .iconFechar {
+        display: block;
+        font-size: 1.3em;
+        margin: auto;
+    }
     .menuFront nav {
         display: none;
         border: black solid 1px;
@@ -74,6 +89,7 @@
         height: 100vh;
         font-size: 2em;
         background-color:rgb(31, 143, 11);
+        animation: animaMe 500ms normal;
     }
     .menuFront nav ul {
         display: block;
@@ -88,6 +104,8 @@
         display: block;
     }
     @keyframes animaMe {
-        
+        0% {
+            right: -100%;
+        }
     }
 }

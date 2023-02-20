@@ -31,7 +31,7 @@ export default function Menutop({children}) {
                     </Link>
                    
                     <nav id="menuI">
-                    <FaWindowClose  onClick={fechaM}/>
+                    <FaWindowClose className={styles.iconFechar}  onClick={fechaM}/>
                         <ul className={styles.menuItens}>
                             <Link href='/'>
                                 <li>Home</li>
@@ -63,7 +63,7 @@ export default function Menutop({children}) {
                         </ul>
                     </nav>
                     <div >
-                    <GiHamburgerMenu onClick={abreM} />
+                    <GiHamburgerMenu className={styles.iconA} onClick={abreM} />
                     </div>
                 </div>
             </div>

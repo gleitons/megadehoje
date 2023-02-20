@@ -22,33 +22,37 @@ export async function getStaticProps() {
 
     const Anterior = (data.concurso) - 1;
     const bola1 = data.dezenas[0];
+    const premiacao = data.premiacoes;
+    console.log(premiacao)
     
     return {
         props: {
-            megaSena: data, Anterior, bola1
+            megaSena: data, Anterior, bola1, premiacao
 
         }
     }
 }
-export default function MegaSena({ megaSena, Anterior, bola1 }) {
+export default function MegaSena({ megaSena, Anterior, bola1, premiacao }) {
+    const megaS = `Mega Sena ${megaSena.concurso} - mega de hoje`
+    const keyW = `mega de hoje, mega sena, mega sena, mega sena ${megaSena.concurso}, ultimo resultado da mega de hoje ${megaSena.concurso}, resultado da loto, resultado da mega sena, mega-sena da virada, mega da virada'`
 
     return (
 
         <>
             <Head>
-                <meta name="keywords" content="mega de hoje, mega sena, resultado da loto, resultado da mega sena, mega-sena da virada, mega da virada" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-                <link rel="canonical" href="https://megadehoje.com/" />
-                <meta name="description" content="Mega de hoje, resultados e dicas da mega-sena e loterias nacional. Mega de hoje possui o último resultado da mega-sena. megadehoje." />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <title>Resultado da Mega Sena - mega de hoje</title>
+                <meta name='keywords' content={keyW} />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
+                <link rel='canonical' href='https://megadehoje.com/' />
+                <meta name='description' content='Mega de hoje, resultados e dicas da mega-sena e loterias nacional. Mega de hoje possui o último resultado da mega-sena. megadehoje.' />
+                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+                <title>{megaS}</title>
             </Head>
             <div className={styles.bodyMega}>
                 <div className={styles.artigo}>
-                    <h1>Mega-Sena</h1>
+                    <h1>Mega-Sena {megaSena.concurso}</h1>
                     <div className={styles.apresentacaoMega}>
                         <div className={styles.info}>
-                            <h2>Mega Sena</h2>
+                            <h2>Mega Sena {megaSena.concurso}</h2>
                             <p>A Mega Sena é a maior loteria do Brasil e uma das maiores do mundo, com um prêmio principal que pode valer centenas de milhões de reais. Os sorteios acontecem às quartas e sábados em semanas regulares, mas também tem uma série de sorteios especiais e Mega Semanas ao longo do ano.</p>
                             <p>O site MegaSena.com fornece os últimos resultados assim que estão disponíveis, informações sobre quando você pode esperar o próximo grande evento e tudo o mais que precisa saber do jogo.</p>
                             <h3>Resultados da Mega Sena</h3>
@@ -82,6 +86,9 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
 
                             </div>
                             <div className={styles.proximoP}>
+                                {/* <li>Sena: {premiacao} ganhadores</li>
+                                <li>Quina: {megaSena.concurso} ganhadores</li>
+                                <li>Quadra: {megaSena.concurso} ganhadores</li> */}
                                 <p>O prêmio da Mega Sena previsto para {megaSena.dataProxConcurso} é de:</p>
                                 <h3>Próximo Concurso: {megaSena.acumuladaProxConcurso}</h3>
                             </div>
