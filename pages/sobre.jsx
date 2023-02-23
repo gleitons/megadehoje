@@ -3,13 +3,16 @@ import Anuncios from "../Components/Anuncios"
 import Image from "next/image"
 import Link from "next/link"
 import logoMega from '/public/img/logo-mega-de-hoje.svg'
+import LogoCss from '../Components/LogoCss'
 export default function Sobre() {
     return (
         <>
          <div className={styles.bodyMega}>
             <div className={styles.artigo}>
-                <h1>Sobre Mega de Hoje</h1>             
-                    <Image src={logoMega} width={360} alt={"Mega de hoje"}/>
+                <h1>Sobre Mega de Hoje</h1>  
+                <LogoCss />
+                               
+                    {/* <Image src={logoMega} width={360} alt={"Mega de hoje"}/> */}
                   
                <p>Somos um site com notícias, informações e dicas de como ganhar na mega-sena. Criado em 2018 o megadehoje.com te informa os últimos sorteios e premiações que aconteceram na mega sena. Confira nosso canal no youtube e instagram. Resultado e dicas de como ganhar na lotofácil, mega-sena e muito mais, todas as loterias nacional.</p>
                 <p>Jogar nas loterias Online é seguro. Você pode realizar boloes, salvar jogos, analisar e muito mais, tudo isso no conforto de sua casa, sem enfrentar as terríveis filas das lotéricas. Vamos ter dicas de como jogar na loteria federal totalmente online.</p>
