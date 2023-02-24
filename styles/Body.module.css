@@ -170,8 +170,32 @@
     padding: 0px;
   }
   .logodoMega {
-    padding: 60px;
+    padding: 65px;
     position: relative;
+    animation: 10s;
+   
+    
+  }
+  .logodoMega:hover {
+    cursor: pointer;
+    animation: rota 10s infinite linear;
+  }
+  .logodoMega:active {
+    animation: rota 1s infinite linear;
+  }
+  @keyframes rota {
+        0% { 
+            
+            rotate: 0deg;
+        }
+        100% {
+            
+            filter: saturate(120%);
+            rotate: 360deg;
+            
+        }
+       
+       
   }
  
 .coracaoTrevo {    
