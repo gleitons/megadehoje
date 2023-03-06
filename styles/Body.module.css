@@ -15,8 +15,9 @@
     width: 70%;
 }
 .bodyMega .anuncios {
-    border: black solid 1px;
-    width: 300px;
+    border-left: rgb(144, 144, 144) solid 1px;
+    width: 500px;
+    
 }
 .maxDimensao {
     margin: auto;
