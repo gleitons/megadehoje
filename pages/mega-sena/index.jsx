@@ -1,12 +1,8 @@
 import styles from '../../styles/Body.module.css'
 import Anuncios from "../../Components/Anuncios"
-import MegaSenaSorteio from '../../Components/mega-sena/MegaSenaSorteio';
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Bola from '../../Components/Bola';
 import Head from 'next/head';
-import Link from 'next/link';
-import TodosDepoimentos from '../../Components/TodosDepoimentos';
-import MegaSenaPalpite from '../../Components/mega-sena/MegaSenaPalpite';
 import MegaSenaResultado from '../../Components/mega-sena/MegaSenaResultado';
 
 
@@ -35,19 +31,7 @@ export async function getStaticProps() {
     
 }
 
-function irResultado() {
-    const numeroInserido = document.querySelector('#numeroInserido').value;
-    const btnPesquisar = document.querySelector('#btnPesquisar');
 
-    //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
-    btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
-
-    console.log(btnPesquisar)
-
-
-
-    // window.location.href = `/mega-sena/${numeroInserido}`
-}
 
 
 export default function MegaSena({ megaSena, Anterior, bola1, premiacao }) {

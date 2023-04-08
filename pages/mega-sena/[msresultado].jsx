@@ -2,14 +2,10 @@ import Link from "next/link"
 import Head from "next/head";
 //import { useRouter } from "next/router"
 
-
 import styles from '../../styles/Body.module.css'
 import Anuncios from "../../Components/Anuncios"
-import MegaSenaSorteio from '../../Components/mega-sena/MegaSenaSorteio';
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Bola from '../../Components/Bola';
-import TodosDepoimentos from '../../Components/TodosDepoimentos';
-import MegaSenaPalpite from '../../Components/mega-sena/MegaSenaPalpite';
 import MegaSenaResultado from '../../Components/mega-sena/MegaSenaResultado';
 
 
@@ -45,27 +41,28 @@ export async function getStaticPaths() {
 
         }
     })
-    return { paths, fallback: true }
+    return { paths, fallback: false }
 }
 
 
-function irResultado() {
-    const numeroInserido = document.querySelector('#numeroInserido').value;
-    const btnPesquisar = document.querySelector('#btnPesquisar');
 
-    //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
-    btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
-
-    console.log(btnPesquisar)
-
-
-
-    // window.location.href = `/mega-sena/${numeroInserido}`
-}
 
 export default function ResultMegaSena({ megaSena }) {
     //const router = useRouter();
     //const megaId = router.query.msresultado
+    function irResultado() {
+        const numeroInserido = document.querySelector('#numeroInserido').value;
+        const btnPesquisar = document.querySelector('#btnPesquisar');
+    
+        //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
+        btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
+    
+        console.log(btnPesquisar)
+    
+    
+    
+        // window.location.href = `/mega-sena/${numeroInserido}`
+    }
 
     const megaS = `Mega Sena ${megaSena.concurso} - mega de hoje`
     const keyW = `mega de hoje, mega sena, mega sena, mega sena ${megaSena.concurso}, ultimo resultado da mega de hoje ${megaSena.concurso}, resultado da loto, resultado da mega sena, mega-sena da virada, mega da virada'`
