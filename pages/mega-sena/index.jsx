@@ -40,8 +40,16 @@ export default function MegaSena({ megaSena, Anterior, bola1, premiacao }) {
 
     function irResultado() {
         const numeroInserido = document.querySelector('#numeroInserido').value;
-
-        window.location.href = `/mega-sena/${numeroInserido}`
+        const btnPesquisar = document.querySelector('#btnPesquisar');
+    
+        //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
+        btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
+    
+        console.log(btnPesquisar)
+    
+    
+    
+        // window.location.href = `/mega-sena/${numeroInserido}`
     }
 
     return (

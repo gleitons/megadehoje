@@ -53,14 +53,14 @@ export default function ResultMegaSena({ megaSena }) {
     function irResultado() {
         const numeroInserido = document.querySelector('#numeroInserido').value;
         const btnPesquisar = document.querySelector('#btnPesquisar');
-    
+
         //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
         btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
-    
+
         console.log(btnPesquisar)
-    
-    
-    
+
+
+
         // window.location.href = `/mega-sena/${numeroInserido}`
     }
 
@@ -68,7 +68,7 @@ export default function ResultMegaSena({ megaSena }) {
     const keyW = `mega de hoje, mega sena, mega sena, mega sena ${megaSena.concurso}, ultimo resultado da mega de hoje ${megaSena.concurso}, resultado da loto, resultado da mega sena, mega-sena da virada, mega da virada'`
     const descrip = `Resultado da mega-sena ${megaS} Mega de hoje, resultados e dicas da mega-sena e loterias nacional. Mega de hoje possui o último resultado da mega-sena. megadehoje.`
 
-    
+
 
 
     return (
@@ -90,13 +90,13 @@ export default function ResultMegaSena({ megaSena }) {
 
                 <div className={styles.artigo}>
                     <h1>RESULTADO DA MEGA-SENA {megaSena.concurso}: Último resultado sorteado no concurso {megaSena.concurso} da mega de hoje, {megaSena.data}</h1>
-                    <h4>O sorteio do concurso 2579 da Mega-Sena foi sorteado neste sábado, 01/04. Veja agora o resultado e o valor do prêmio</h4>
+                    <h4>O sorteio do concurso {megaSena.concurso} da Mega-Sena foi sorteado hoje, {megaSena.data}. Veja agora o resultado e o valor do prêmio</h4>
                     <div className={styles.apresentacaoMega}>
                         <div className={styles.info}>
                             <input type="number" placeholder='Digite o Sorteiro' id='numeroInserido' onKeyUp={irResultado} minlength="1"
-                                maxlength="4" required /> <div id="btnPesquisar" > <Link  href=""> <button>Ver Resultado</button> </Link>
-                                    </div> 
-                            <h2>Mega Sena {megaSena.concurso}</h2> 
+                                maxlength="4" required /> <div id="btnPesquisar" > <Link href=""> <button>Ver Resultado</button> </Link>
+                            </div>
+                            <h2>Mega Sena {megaSena.concurso}</h2>
                             <p>A Mega Sena é a maior loteria do Brasil e uma das maiores do mundo, com um prêmio principal que pode valer centenas de milhões de reais. Os sorteios acontecem às quartas e sábados em semanas regulares, mas também tem uma série de sorteios especiais e Mega Semanas ao longo do ano.</p>
                             <p>O site MegaSena.com fornece os últimos resultados assim que estão disponíveis, informações sobre quando você pode esperar o próximo grande evento e tudo o mais que precisa saber do jogo.</p>
                             <h3>Resultados da Mega Sena</h3>
@@ -139,12 +139,19 @@ export default function ResultMegaSena({ megaSena }) {
 
                             </div>
                         </div>
-
+                       
                     </div>
+                    <div>
+                            <h1>Resultado da mega-sena {megaSena.concurso} dia {megaSena.data}</h1>
+                            <p>Sorteio da mega-sena aconteceu hoje, {megaSena.data}, confira agora mesmo o resultado da mega-sena {megaSena.concurso}.</p>
+                            <h2>Como ficou o resultado da loteria nacional hoje</h2>
+                            <p>É isso mesmo, saiu o resultado do concurso {megaSena.concurso}, realizado a partir das 20:00 hs, dia {megaSena.data}, as dezenas sorteadas foram: <strong>{megaSena.dezenas[0]} - {megaSena.dezenas[1]} - {megaSena.dezenas[2]} - {megaSena.dezenas[3]} - {megaSena.dezenas[5]} - {megaSena.dezenas[5]}</strong>. Foram ... apostas vencedoras da sena, cada um vai receber o valor de R$ ... de reais, ... vencedores(as) que conseguiram acertar 5 números na (quina) e levaram cada um R$... </p>
+                            {/* {acumulaO[1].premio} de reais. Já com 4 acertos (quadra) foram {acumulaO[2].vencedores} apostas ganhadoras, ficando cada um com R$ {acumulaO[2].premio} reais. Confira agora mesmo o resultado da {loteria} {concurso} dia {data} - {diaConcurso}. */}
+                        </div>
 
 
 
-                    <MegaSenaResultado
+                    {/* <MegaSenaResultado
                         nome={megaSena.nome}
                         loteria={megaSena.loteria}
                         proxConcurso={megaSena.proxConcurso}
@@ -156,7 +163,7 @@ export default function ResultMegaSena({ megaSena }) {
                         premiacoes={megaSena.premiacoes}
                         acumulou={megaSena.acumulou}
                         data={megaSena.data}
-                    />
+                    /> */}
 
 
                 </div>
