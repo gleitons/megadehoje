@@ -1,12 +1,13 @@
-import styles from '../styles/Body.module.css'
-import Anuncios from "../Components/Anuncios"
-import MegaSenaSorteio from '../Components/mega-sena/MegaSenaSorteio';
+import styles from '../../styles/Body.module.css'
+import Anuncios from "../../Components/Anuncios"
+import MegaSenaSorteio from '../../Components/mega-sena/MegaSenaSorteio';
 import { FaRegCalendarAlt } from 'react-icons/fa'
-import Bola from '../Components/Bola';
+import Bola from '../../Components/Bola';
 import Head from 'next/head';
-import TodosDepoimentos from '../Components/TodosDepoimentos';
-import MegaSenaPalpite from '../Components/mega-sena/MegaSenaPalpite';
-import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
+import Link from 'next/link';
+import TodosDepoimentos from '../../Components/TodosDepoimentos';
+import MegaSenaPalpite from '../../Components/mega-sena/MegaSenaPalpite';
+import MegaSenaResultado from '../../Components/mega-sena/MegaSenaResultado';
 
 
 
@@ -31,10 +32,33 @@ export async function getStaticProps() {
 
         }
     }
+    
 }
+
+function irResultado() {
+    const numeroInserido = document.querySelector('#numeroInserido').value;
+    const btnPesquisar = document.querySelector('#btnPesquisar');
+
+    //btnPesquisar.setAttribute('href', `/mega-sena/${numeroInserido}`)
+    btnPesquisar.innerHTML = `<a href="/mega-sena/${numeroInserido}" > <button>Ver Resultado</button> </a>`
+
+    console.log(btnPesquisar)
+
+
+
+    // window.location.href = `/mega-sena/${numeroInserido}`
+}
+
+
 export default function MegaSena({ megaSena, Anterior, bola1, premiacao }) {
     const megaS = `Mega Sena ${megaSena.concurso} - mega de hoje`
     const keyW = `mega de hoje, mega sena, mega sena, mega sena ${megaSena.concurso}, ultimo resultado da mega de hoje ${megaSena.concurso}, resultado da loto, resultado da mega sena, mega-sena da virada, mega da virada'`
+
+    function irResultado() {
+        const numeroInserido = document.querySelector('#numeroInserido').value;
+
+        window.location.href = `/mega-sena/${numeroInserido}`
+    }
 
     return (
 
@@ -52,6 +76,9 @@ export default function MegaSena({ megaSena, Anterior, bola1, premiacao }) {
                     <h1>Mega-Sena {megaSena.concurso}</h1>
                     <div className={styles.apresentacaoMega}>
                         <div className={styles.info}>
+                        <input type="number" placeholder='Digite o Sorteiro' id='numeroInserido' onKeyUp={irResultado} minlength="1"
+                                maxlength="4" required /> <div id="btnPesquisar" > <a  href="#"> <button>Ver Resultado</button> </a>
+                                    </div> 
                             <h2>Mega Sena {megaSena.concurso}</h2>
                             <p>A Mega Sena é a maior loteria do Brasil e uma das maiores do mundo, com um prêmio principal que pode valer centenas de milhões de reais. Os sorteios acontecem às quartas e sábados em semanas regulares, mas também tem uma série de sorteios especiais e Mega Semanas ao longo do ano.</p>
                             <p>O site MegaSena.com fornece os últimos resultados assim que estão disponíveis, informações sobre quando você pode esperar o próximo grande evento e tudo o mais que precisa saber do jogo.</p>

@@ -10,24 +10,18 @@ import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
 
 
-
-
 export async function getStaticProps() {
-    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/2579";
+    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest";
 
     const api = await fetch(URL_Api);
-    console.log(api)
-    const data = await api.json();
+    var data = await api.json();
 
 
     const Anterior = (data.concurso) - 1;
     const bola1 = data.dezenas[0];
     
     return {
-        props: {
-            megaSena: data, Anterior, bola1
-
-        }
+        props: { megaSena: data, Anterior, bola1  },
     }
 }
 export default function MegaSena({ megaSena, Anterior, bola1 }) {
@@ -68,6 +62,10 @@ export default function MegaSena({ megaSena, Anterior, bola1 }) {
                                             <p>{megaSena.data}</p>
                                         </div>
                                         <div className={styles.divBolas}>
+                                          {/* {data.map((bm) => (
+                                                <li key={bm.concurso} >tim</li>
+                                                //< key={bolasMega.concurso} bol={megaSena.bolasMega[1]} />
+                                            ))} */}
                                             <Bola bol={bola1} />
                                             <Bola bol={megaSena.dezenas[1]} />
                                             <Bola bol={megaSena.dezenas[2]} />
