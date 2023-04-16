@@ -11,7 +11,7 @@ import MegaSenaResultado from '../Components/mega-sena/MegaSenaResultado';
 
 
 export async function getStaticProps() {
-    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest";
+    const URL_Api = "https://loteriascaixa-api.herokuapp.com/api/mega-sena/2582";
 
     const api = await fetch(URL_Api);
     var data = await api.json();
