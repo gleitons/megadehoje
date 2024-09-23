@@ -4,6 +4,7 @@ import loterias from "./components/loterias/Loterias";
 
 export default function Home() {
   const rLoterias = loterias;
+ 
 
   return (
     <div>
@@ -11,6 +12,7 @@ export default function Home() {
        
         <div>
           {rLoterias.map((loteria) => (
+            
             <BotoesLink key={loteria.nome} cor={loteria.cor} texto={loteria.nome} link={loteria.link} icone={loteria.icone} />
           ))}
         </div>
