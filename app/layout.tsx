@@ -35,7 +35,7 @@ export default function RootLayout({
           <Menu />
           </div>
       
-        <div className="px-5 h-svh">
+        <div className="px-5 h-dvh">
           {children}
         </div>
         <Footer />
