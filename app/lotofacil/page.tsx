@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import BotaoVoltar from "../components/header/BotaoVoltar";
+import Bolas from "@/app/components/botoes/bolas";
+import MegaS from "../components/skeletons/MegaS";
 
 export default function Page() {
   const [data, setData] = useState<{
@@ -9,10 +11,10 @@ export default function Page() {
     data: string;
     dezenas: number[];
     acumulado: boolean;
-    premiacoes: { valorPremio: number }[];
+    premiacoes: { valorPremio: number; ganhadores: number }[];
     dataProximoConcurso: string;
     localGanhador?: string;
-   
+    local: string;
   } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -42,55 +44,112 @@ export default function Page() {
     fetchLotofacil();
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p>Erro: {error}</p>;
+  if (loading) return <MegaS />;
+  if (error) return <p><BotaoVoltar cor={"bg-green-600"} />{" "} <br />Erro: Atualize a página Novamente -  {error}</p>;
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <BotaoVoltar cor={'bg-purple-600'} />{" "}
+      <BotaoVoltar cor={"bg-purple-600"} />
       <div>
         <br />
       </div>
       <div className="bg-purple-600 p-4 rounded-t-xl">
         <h2 className="text-white text-xl text-center font-bold">
-          Mega-Sena - Concurso {data?.concurso}
+          Lotofácil - Concurso {data?.concurso}
         </h2>
         <p className="text-white text-center">Data: {data?.data}</p>
+        <h3 className="text-white text-xl text-center font-bold">
+          {data?.acumulado ? "ACUMULOU" : "Teve Ganhador"}
+        </h3>
       </div>
       <div className="p-6">
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
-        <ul className="flex flex-wrap justify-center ">
+        <ul className="flex flex-wrap justify-center">
           {data?.dezenas.map((numero) => (
-            <li
-              key={numero}
-              className="text-2xl w-[50px] m-1 font-semibold hover:scale-150 select-none transition-all hover:shadow-xd text-purple-600 bg-gray-200 p-2 rounded-md shadow-md"
-            >
-              {numero}
-            </li>
+            <Bolas key={numero} cor={"bg-purple-500"} numero={numero} />
           ))}
         </ul>
-
-        <p className="text-gray-700">
-          <span className="font-semibold select-none">Prêmio:</span> R$ {data?.premiacoes[0]?.valorPremio} {/* Corrigido para acessar 'valor' */}
-        </p>
-
-        <p className="text-gray-700">
-          <span className="font-semibold select-none">Acumulado:</span>{" "}
-          {data?.acumulado ? "Sim" : "Não"}
-        </p>
-
-        <p className="text-gray-700">
-          <span className="font-semibold select-none">Próximo Sorteio:</span>{" "}
-          {data?.dataProximoConcurso}
-        </p>
-
-        {data?.localGanhador && (
-          <p className="text-gray-700">
-            <span className="font-semibold select-none">Ganhador Local:</span>{" "}
-            {data?.localGanhador}
+        <div className="bg-purple-500 text-white mt-4 p-2 rounded-lg">
+          <p className="text-white-700 text-center">
+            <span className="font-semibold select-none text-center">
+              Aposta de 15 números vencedoras:{" "}
+              {data?.premiacoes[0]?.ganhadores.toLocaleString("pt-br")}
+            </span>
           </p>
-        )}
-
+        </div>
+        <div className="mt-4">
+          <table className="table-auto w-full border-collapse border text-xs border-gray-300">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-2 border border-gray-300">ACERTOS</th>
+                <th className="px-4 py-2 border border-gray-300">VENCEDOR</th>
+                <th className="px-4 py-2 border border-gray-300">PRÊMIAÇÃO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-white">
+                <td className="px-4 py-2 border border-gray-300 text-center">15</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  {data?.premiacoes[0]?.ganhadores.toLocaleString("pt-br")}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {data?.premiacoes[0]?.valorPremio.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="px-4 py-2 border border-gray-300 text-center">14</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  {data?.premiacoes[1]?.ganhadores.toLocaleString("pt-br")}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {data?.premiacoes[1]?.valorPremio.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+              </tr>
+              <tr className="bg-white">
+                <td className="px-4 py-2 border border-gray-300 text-center">13</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  {data?.premiacoes[2]?.ganhadores.toLocaleString("pt-br")}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {data?.premiacoes[2]?.valorPremio.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="px-4 py-2 border border-gray-300 text-center">12</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  {data?.premiacoes[3]?.ganhadores.toLocaleString("pt-br")}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {data?.premiacoes[3]?.valorPremio.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+              </tr>
+              <tr className="bg-white">
+                <td className="px-4 py-2 border border-gray-300 text-center">11</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  {data?.premiacoes[4]?.ganhadores.toLocaleString("pt-br")}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
+                  {data?.premiacoes[4]?.valorPremio.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p className="mt-4 text-center text-white bg-purple-600 p-2 rounded-lg">
           Boa sorte no próximo sorteio!
         </p>
