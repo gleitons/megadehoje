@@ -59,7 +59,7 @@ export default function Page() {
         </h2>
         <p className="text-white text-center">Data: {data?.data}</p>
         <h3 className="text-white text-xl text-center font-bold">
-          {data?.acumulado ? "ACUMULOU" : "Teve Ganhador"}
+          {data?.acumulado ? "TEVE GANHADOR" : "ACUMULOU"}
         </h3>
       </div>
       <div className="p-6">
@@ -151,7 +151,7 @@ export default function Page() {
           </table>
         </div>
         <p className="mt-4 text-center text-white bg-purple-600 p-2 rounded-lg">
-          Boa sorte no próximo sorteio!
+          Próximo sorteio! {" "} {data?.dataProximoConcurso}
         </p>
       </div>
     </div>
