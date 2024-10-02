@@ -1,14 +1,22 @@
 
 .container {
-    
-    
+    position: relative;
+    /* border-bottom: rgb(192, 192, 192) 2px solid; */
+    box-shadow: gray 0px 0px 6px 0px;
+    height: 100px;
     display: flex;
-   
+    background-color: rgb(247, 247, 247);
 }
 .oLogo {
     margin-bottom: 30px;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 27px;
+    bottom: -4px;
+
 }
 .informacao {
+    margin-left: 100px;
     padding-top: 20px;
 }
 .heart1 {
@@ -36,6 +44,13 @@
 
 .heart1:after {
     left: 17px;
+}
+
+.alinha1 {
+       /* position: absolute; */
+       top: 12px;
+       left: 8px;
+       transform: rotate(316deg);
 }
 
 /* /////// */

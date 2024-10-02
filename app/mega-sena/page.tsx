@@ -71,9 +71,9 @@ export default function MegaSenaCard() {
       mes = (deData.getMonth() + 1).toString(); // Convertendo para string
     }
     const dataHojeI = `${dia}/${mes}/${deData.getFullYear()}`;
-    console.log(dataHojeI);
+  
     const doD = dataHojeI == (data?.dataProximoConcurso)?.toString() ? `HOJE!! dia ${data?.dataProximoConcurso} `: data?.dataProximoConcurso
-    console.log(doD)
+  
     return doD
   };
   
