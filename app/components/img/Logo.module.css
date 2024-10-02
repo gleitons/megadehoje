@@ -1,0 +1,146 @@
+
+.container {
+    
+    
+    display: flex;
+   
+}
+.oLogo {
+    margin-bottom: 30px;
+}
+.informacao {
+    padding-top: 20px;
+}
+.heart1 {
+    margin: 30px;
+    background-color: green;
+    height: 30px;
+    transform: rotate(-45deg);
+    width: 30px;
+    position: relative;
+}
+
+.heart1:before,
+.heart1:after {
+    content: "";
+    background-color: green;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart1:before {
+    top: -17px;
+}
+
+.heart1:after {
+    left: 17px;
+}
+
+/* /////// */
+.heart2 {
+    margin: 30px;
+    background-color: rgb(87, 192, 87);
+    height: 30px;
+    transform: rotate(-45deg);
+    width: 30px;
+    position: relative;
+}
+
+.heart2:before,
+.heart2:after {
+    content: "";
+    background-color: rgb(87, 192, 87);
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart2:before {
+    top: -17px;
+}
+
+.heart2:after {
+    left: 17px;
+}
+.alinha2 {
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    transform: rotate(43deg);
+}
+
+
+.heart3 {
+    margin: 30px;
+    background-color: rgb(87, 192, 87);
+    height: 30px;
+    transform: rotate(-45deg);
+    width: 30px;
+    position: relative;
+}
+
+.heart3:before,
+.heart3:after {
+    content: "";
+    background-color: rgb(87, 192, 87);
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart3:before {
+    top: -17px;
+}
+
+.heart3:after {
+    left: 17px;
+}
+
+
+.heart4 {
+    margin: 30px;
+    background-color: green;
+    height: 30px;
+    transform: rotate(-45deg);
+    width: 30px;
+    position: relative;
+}
+
+.heart4:before,
+.heart4:after {
+    content: "";
+    background-color: green;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart4:before {
+    top: -17px;
+}
+
+.heart4:after {
+    left: 17px;
+}
+
+.alinha3 {
+    position: absolute;
+    top: 35px;
+    left: -14px;
+    transform: rotate(225deg);
+}
+
+
+.alinha4 {
+    position: absolute;
+    top: 58px;
+    left: 8px;
+    transform: rotate(133deg);
+}
+
+

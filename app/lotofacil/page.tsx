@@ -15,6 +15,7 @@ export default function Page() {
     dataProximoConcurso: string;
     localGanhador?: string;
     local: string;
+    valorEstimadoProximoConcurso: number;
   } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +46,13 @@ export default function Page() {
   }, []);
 
   if (loading) return <MegaS />;
-  if (error) return <p><BotaoVoltar cor={"bg-green-600"} />{" "} <br />Erro: Atualize a página Novamente -  {error}</p>;
+  if (error)
+    return (
+      <p>
+        <BotaoVoltar cor={"bg-green-600"} /> <br />
+        Erro: Atualize a página Novamente - {error}
+      </p>
+    );
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
@@ -59,10 +66,12 @@ export default function Page() {
         </h2>
         <p className="text-white text-center">Data: {data?.data}</p>
         <h3 className="text-white text-xl text-center font-bold">
-          {data?.acumulado ? "TEVE GANHADOR" : "ACUMULOU"}
+          {data?.acumulado ? "ACUMULOU" : "TEVE GANHADOR"}
         </h3>
       </div>
       <div className="p-6">
+      <h3 className="text-lg text-gray-500 text-center ">:Próximo Sorteio:</h3>
+        <h1 className="text-2xl font-bold text-center text-gray-700">{data?.valorEstimadoProximoConcurso.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}:</h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
         <ul className="flex flex-wrap justify-center">
           {data?.dezenas.map((numero) => (
@@ -88,7 +97,9 @@ export default function Page() {
             </thead>
             <tbody>
               <tr className="bg-white">
-                <td className="px-4 py-2 border border-gray-300 text-center">15</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  15
+                </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
                   {data?.premiacoes[0]?.ganhadores.toLocaleString("pt-br")}
                 </td>
@@ -100,7 +111,9 @@ export default function Page() {
                 </td>
               </tr>
               <tr className="bg-gray-50">
-                <td className="px-4 py-2 border border-gray-300 text-center">14</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  14
+                </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
                   {data?.premiacoes[1]?.ganhadores.toLocaleString("pt-br")}
                 </td>
@@ -112,7 +125,9 @@ export default function Page() {
                 </td>
               </tr>
               <tr className="bg-white">
-                <td className="px-4 py-2 border border-gray-300 text-center">13</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  13
+                </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
                   {data?.premiacoes[2]?.ganhadores.toLocaleString("pt-br")}
                 </td>
@@ -124,7 +139,9 @@ export default function Page() {
                 </td>
               </tr>
               <tr className="bg-gray-50">
-                <td className="px-4 py-2 border border-gray-300 text-center">12</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  12
+                </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
                   {data?.premiacoes[3]?.ganhadores.toLocaleString("pt-br")}
                 </td>
@@ -136,7 +153,9 @@ export default function Page() {
                 </td>
               </tr>
               <tr className="bg-white">
-                <td className="px-4 py-2 border border-gray-300 text-center">11</td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                  11
+                </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
                   {data?.premiacoes[4]?.ganhadores.toLocaleString("pt-br")}
                 </td>
@@ -151,7 +170,7 @@ export default function Page() {
           </table>
         </div>
         <p className="mt-4 text-center text-white bg-purple-600 p-2 rounded-lg">
-          Próximo sorteio! {" "} {data?.dataProximoConcurso}
+          Próximo sorteio! {data?.dataProximoConcurso}
         </p>
       </div>
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Menu from '@/app/components/header/Menu'
 import Footer from '@/app/components/footer/Footer'
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <div className="w-full  m-auto ">
           <div className="m-auto">
           <Menu />
+       
           </div>
       
         <div className="px-5 h-dvh">

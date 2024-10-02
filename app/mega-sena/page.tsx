@@ -10,11 +10,12 @@ export default function MegaSenaCard() {
     data: string;
     dezenas: number[];
     acumulado: boolean;
-    premiacoes: { valor: number; ganhadores: number, valorPremio: number }[]; // Adicionando 'ganhadores' aqui
+    premiacoes: { valor: number; ganhadores: number; valorPremio: number }[]; // Adicionando 'ganhadores' aqui
     ganhadores: { ganhadores: number }[]; // Esta linha pode ser removida se não for usada
     dataProximoConcurso: string;
     localGanhador?: string;
     local: string;
+    valorEstimadoProximoConcurso: number;
   } | null>(null); // Definindo o tipo de dados
   const [loading, setLoading] = useState(true); // Estado para o carregamento
   const [error, setError] = useState<string | null>(null); // Atualizando o tipo do estado de erro
@@ -48,12 +49,33 @@ export default function MegaSenaCard() {
   }, []); // O array vazio faz o `useEffect` rodar apenas uma vez ao carregar o componente
 
   if (loading)
+    return (<p><MegaS /></p>);
+  if (error)
     return (
       <p>
-        <MegaS  />
+        <BotaoVoltar cor={"bg-green-600"} /> <br />
+        Erro: Atualize a página Novamente - {error}
       </p>
     );
-  if (error) return <p><BotaoVoltar cor={"bg-green-600"} />{" "} <br />Erro: Atualize a página Novamente -  {error}</p>;
+  const deData = new Date();
+  const dataHoje = () => {
+    let dia = ''
+    let mes = ''
+    if(deData.getDate().toString().length == 1) {
+      dia = '0' + deData.getDate()
+    }
+    if((deData.getMonth().toString() + 1).length == 1) {
+      mes = '0' + (deData.getMonth() + 1)
+    } else {
+      mes = deData.getMonth() + 1
+    }
+    const dataHojeI = `${dia}/${mes}/${deData.getFullYear()}`;
+    console.log(dataHojeI);
+    const doD = dataHojeI == (data?.dataProximoConcurso)?.toString() ? `HOJE!! dia ${data?.dataProximoConcurso} `: data?.dataProximoConcurso
+    console.log(doD)
+    return doD
+  };
+  
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
@@ -77,6 +99,8 @@ export default function MegaSenaCard() {
         </div>
       </div>
       <div className="p-6">
+      <h3 className="text-lg text-gray-500 text-center ">:Próximo Sorteio:</h3>
+      <h1 className="text-2xl font-bold text-center text-gray-700">{data?.valorEstimadoProximoConcurso.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}:</h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
         <ul className="flex space-x-3 my-4">
           {data?.dezenas.map((numero) => (
@@ -85,34 +109,60 @@ export default function MegaSenaCard() {
         </ul>
       </div>
       <div>
-      <table className="table-auto w-full border-collapse border text-xs border-gray-300">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="px-4 py-2 border border-gray-300">PREMIAÇÃO</th>
-            <th className="px-4 py-2 border border-gray-300">GANHADORES</th>
-            <th className="px-4 py-2 border border-gray-300">PRÊMIO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="bg-white">
-            <td className="px-4 py-2 border border-gray-300 text-center">SENA</td>
-            <td className="px-4 py-2 border border-gray-300 text-center">{data?.premiacoes[0]?.ganhadores || 0}</td> 
-            <td className="px-4 py-2 border border-gray-300">{data?.premiacoes[0]?.valorPremio?.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) || 0}</td>
-          </tr>
-          <tr className="bg-gray-50">
-            <td className="px-4 py-2 border border-gray-300 text-center">QUINA</td>
-            <td className="px-4 py-2 border border-gray-300 text-center">{data?.premiacoes[1]?.ganhadores || 0}</td>
-            <td className="px-4 py-2 border border-gray-300">{data?.premiacoes[1]?.valorPremio?.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) || 0}</td>
-          </tr>
-          <tr className="bg-white">
-            <td className="px-4 py-2 border border-gray-300 text-center">QUADRA</td>
-            <td className="px-4 py-2 border border-gray-300 text-center">{(data?.premiacoes[2]?.ganhadores) || 0}</td>
-            <td className="px-4 py-2 border border-gray-300">{data?.premiacoes[2]?.valorPremio?.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) || 0}</td>
-          </tr>
-        </tbody>
-      </table>
+        <table className="table-auto w-full border-collapse border text-xs border-gray-300">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-4 py-2 border border-gray-300">PREMIAÇÃO</th>
+              <th className="px-4 py-2 border border-gray-300">GANHADORES</th>
+              <th className="px-4 py-2 border border-gray-300">PRÊMIO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="bg-white">
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                SENA
+              </td>
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                {data?.premiacoes[0]?.ganhadores || 0}
+              </td>
+              <td className="px-4 py-2 border border-gray-300">
+                {data?.premiacoes[0]?.valorPremio?.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                }) || 0}
+              </td>
+            </tr>
+            <tr className="bg-gray-50">
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                QUINA
+              </td>
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                {data?.premiacoes[1]?.ganhadores || 0}
+              </td>
+              <td className="px-4 py-2 border border-gray-300">
+                {data?.premiacoes[1]?.valorPremio?.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                }) || 0}
+              </td>
+            </tr>
+            <tr className="bg-white">
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                QUADRA
+              </td>
+              <td className="px-4 py-2 border border-gray-300 text-center">
+                {data?.premiacoes[2]?.ganhadores || 0}
+              </td>
+              <td className="px-4 py-2 border border-gray-300">
+                {data?.premiacoes[2]?.valorPremio?.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                }) || 0}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-       
         <p className="text-gray-700">
           <span className="font-semibold select-none">Próximo Sorteio:</span>{" "}
           {data?.dataProximoConcurso}
@@ -126,9 +176,12 @@ export default function MegaSenaCard() {
         )}
 
         <p className="mt-4 text-center text-white bg-green-600 p-2 rounded-lg">
-          Boa sorte no próximo sorteio!
+          
+          Próximo sorteio! {dataHoje()}
         </p>
+
       </div>
+      
     </div>
   );
 }
