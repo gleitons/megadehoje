@@ -15,6 +15,7 @@ export default function MegaSenaCard() {
     dataProximoConcurso: string;
     localGanhador?: string;
     local: string;
+    mes: number;
     valorEstimadoProximoConcurso: number;
   } | null>(null); // Definindo o tipo de dados
   const [loading, setLoading] = useState(true); // Estado para o carregamento
@@ -67,7 +68,7 @@ export default function MegaSenaCard() {
     if((deData.getMonth().toString() + 1).length == 1) {
       mes = '0' + (deData.getMonth() + 1)
     } else {
-      mes = deData.getMonth() + 1
+      mes = (deData.getMonth() + 1).toString(); // Convertendo para string
     }
     const dataHojeI = `${dia}/${mes}/${deData.getFullYear()}`;
     console.log(dataHojeI);
