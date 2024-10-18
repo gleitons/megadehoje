@@ -45,7 +45,7 @@ export default function Page() {
     fetchLotofacil();
   }, []);
 
-  if (loading) return <MegaS />;
+  if (loading) return <MegaS cor={'purple'} />;
   if (error)
     return (
       <p>
@@ -56,6 +56,7 @@ export default function Page() {
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+     
       <BotaoVoltar cor={"bg-purple-600"} />
       <div>
         <br />

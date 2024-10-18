@@ -4,90 +4,92 @@ import BotaoVoltar from "@/app/components/header/BotaoVoltar";
 import Bolas from "@/app/components/botoes/bolas";
 import MegaS from "@/app/components/skeletons/MegaS";
 
-export default function MegaSenaCard() {
+export default function DiaDeSorteCard() {
   const [data, setData] = useState<{
     concurso: string;
     data: string;
     dezenas: number[];
+    mesSorteado: string;
     acumulado: boolean;
-    premiacoes: { valor: number; ganhadores: number; valorPremio: number }[]; // Adicionando 'ganhadores' aqui
-    ganhadores: { ganhadores: number }[]; // Esta linha pode ser removida se não for usada
+    premiacoes: { valor: number; ganhadores: number; valorPremio: number }[];
     dataProximoConcurso: string;
     localGanhador?: string;
     local: string;
-    mes: number;
     valorEstimadoProximoConcurso: number;
-  } | null>(null); // Definindo o tipo de dados
-  const [loading, setLoading] = useState(true); // Estado para o carregamento
-  const [error, setError] = useState<string | null>(null); // Atualizando o tipo do estado de erro
+  } | null>(null);
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Função para fazer a chamada à API
-    const fetchMegaSena = async () => {
+    const fetchDiaDeSorte = async () => {
       try {
         const response = await fetch(
-          "https://loteriascaixa-api.herokuapp.com/api/megasena/latest"
+          "https://loteriascaixa-api.herokuapp.com/api/diadesorte/latest"
         );
         if (!response.ok) {
-          throw new Error("Erro ao buscar dados da Mega-Sena");
+          throw new Error("Erro ao buscar dados da Dia de Sorte");
         }
         const result = await response.json();
-        setData(result); // Atualiza o estado com os dados da API
-        setLoading(false); // Define que o carregamento terminou
+        setData(result);
+        setLoading(false);
       } catch (error: unknown) {
-        // Especificando o tipo como 'unknown'
         if (error instanceof Error) {
-          // Verificando se é uma instância de Error
-          setError(error.message); // Armazena o erro, se ocorrer
+          setError(error.message);
         } else {
-          setError("Erro desconhecido"); // Mensagem padrão para erro desconhecido
+          setError("Erro desconhecido");
         }
-        setLoading(false); // Define que o carregamento terminou, mesmo com erro
+        setLoading(false);
       }
     };
 
-    fetchMegaSena(); // Chama a função quando o componente é montado
-  }, []); // O array vazio faz o `useEffect` rodar apenas uma vez ao carregar o componente
+    fetchDiaDeSorte();
+  }, []);
 
-  if (loading)
-    return (<MegaS cor={'green'} />);
+  if (loading) return <MegaS cor={"orange"} />;
   if (error)
     return (
       <p>
-        <BotaoVoltar cor={"bg-green-600"} /> <br />
+        <BotaoVoltar cor={"bg-orange-600"} /> <br />
         Erro: Atualize a página Novamente - {error}
       </p>
     );
+
   const deData = new Date();
   const dataHoje = () => {
-    let dia = ''
-    let mes = ''
-    if(deData.getDate().toString().length == 1) {
-      dia = '0' + deData.getDate()
-    }
-    if((deData.getMonth().toString() + 1).length == 1) {
-      mes = '0' + (deData.getMonth() + 1)
+    let dia = "";
+    let mes = "";
+    if (deData.getDate().toString().length === 1) {
+      dia = "0" + deData.getDate();
     } else {
-      mes = (deData.getMonth() + 1).toString(); // Convertendo para string
+      dia = deData.getDate().toString();
     }
+    if ((deData.getMonth() + 1).toString().length === 1) {
+      mes = "0" + (deData.getMonth() + 1);
+    } else {
+      mes = (deData.getMonth() + 1).toString();
+    }
+
     const dataHojeI = `${dia}/${mes}/${deData.getFullYear()}`;
-  
-    const doD = dataHojeI == (data?.dataProximoConcurso)?.toString() ? `HOJE!! dia ${data?.dataProximoConcurso} `: data?.dataProximoConcurso
-  
-    return doD
+    const doD =
+      dataHojeI === data?.dataProximoConcurso
+        ? `HOJE!! dia ${data?.dataProximoConcurso}`
+        : data?.dataProximoConcurso;
+    return doD;
   };
-  
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <BotaoVoltar cor={"bg-green-600"} />{" "}
+      <BotaoVoltar cor={"bg-orange-600"} />
       <div>
         <br />
       </div>
-      <div className="bg-green-600 p-4">
-        <h1 className="text-white text-2xl font-bold text-center">ACUMULOU</h1>
+      <div className="bg-orange-600 p-4">
+        <h1 className="text-white text-2xl font-bold text-center">
+          {data?.acumulado ? "ACUMULOU" : "GANHADORES"}
+        </h1>
         <h2 className="text-white text-xl font-bold text-center">
-          Mega-Sena - Concurso {data?.concurso}
+          Dia de Sorte - Concurso {data?.concurso}
         </h2>
         <div>
           <p className="text-white">Data: {data?.data}</p>
@@ -100,14 +102,23 @@ export default function MegaSenaCard() {
         </div>
       </div>
       <div className="p-6">
-      <h3 className="text-lg text-gray-500 text-center ">:Próximo Sorteio:</h3>
-      <h1 className="text-2xl font-bold text-center text-gray-700">{data?.valorEstimadoProximoConcurso.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}:</h1>
+        <h3 className="text-lg text-gray-500 text-center">Próximo Sorteio:</h3>
+        <h1 className="text-2xl font-bold text-center text-gray-700">
+          {data?.valorEstimadoProximoConcurso.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
-        <ul className="flex space-x-3 my-4">
+        <ul className="flex space-x-3 my-4 justify-center">
           {data?.dezenas.map((numero) => (
-            <Bolas key={numero} cor={"bg-green-600"} numero={numero} />
+            <Bolas key={numero} cor={"bg-orange-600"} numero={numero} />
           ))}
         </ul>
+        <h3 className="text-lg font-bold text-gray-700">Mês Sorteado:</h3>
+        <p className="text-center text-orange-600 text-2xl font-bold">
+          {data?.mesSorteado}
+        </p>
       </div>
       <div>
         <table className="table-auto w-full border-collapse border text-xs border-gray-300">
@@ -121,7 +132,7 @@ export default function MegaSenaCard() {
           <tbody>
             <tr className="bg-white">
               <td className="px-4 py-2 border border-gray-300 text-center">
-                SENA
+                Sena
               </td>
               <td className="px-4 py-2 border border-gray-300 text-center">
                 {data?.premiacoes[0]?.ganhadores || 0}
@@ -135,7 +146,7 @@ export default function MegaSenaCard() {
             </tr>
             <tr className="bg-gray-50">
               <td className="px-4 py-2 border border-gray-300 text-center">
-                QUINA
+                Quina
               </td>
               <td className="px-4 py-2 border border-gray-300 text-center">
                 {data?.premiacoes[1]?.ganhadores || 0}
@@ -149,7 +160,7 @@ export default function MegaSenaCard() {
             </tr>
             <tr className="bg-white">
               <td className="px-4 py-2 border border-gray-300 text-center">
-                QUADRA
+                Quadra
               </td>
               <td className="px-4 py-2 border border-gray-300 text-center">
                 {data?.premiacoes[2]?.ganhadores || 0}
@@ -176,13 +187,10 @@ export default function MegaSenaCard() {
           </p>
         )}
 
-        <p className="mt-4 text-center text-white bg-green-600 p-2 rounded-lg">
-          
+        <p className="mt-4 text-center text-white bg-orange-600 p-2 rounded-lg">
           Próximo sorteio! {dataHoje()}
         </p>
-
       </div>
-      
     </div>
   );
 }

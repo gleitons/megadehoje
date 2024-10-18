@@ -11,8 +11,8 @@
     margin-bottom: 30px;
     position: absolute;
     transform: rotate(45deg);
-    left: 27px;
-    bottom: -4px;
+    left: 45px;
+    bottom: 18px;
 
 }
 .informacao {
@@ -20,11 +20,11 @@
     padding-top: 20px;
 }
 .heart1 {
-    margin: 30px;
+    margin: 20px;
     background-color: green;
-    height: 30px;
+    height: 20px;
     transform: rotate(-45deg);
-    width: 30px;
+    width: 20px;
     position: relative;
 }
 
@@ -33,17 +33,17 @@
     content: "";
     background-color: green;
     border-radius: 50%;
-    height: 30px;
+    height: 20px;
     position: absolute;
-    width: 30px;
+    width: 20px;
 }
 
 .heart1:before {
-    top: -17px;
+    top: -12px;
 }
 
 .heart1:after {
-    left: 17px;
+    left: 12px;
 }
 
 .alinha1 {
@@ -55,11 +55,11 @@
 
 /* /////// */
 .heart2 {
-    margin: 30px;
+    margin: 20px;
     background-color: rgb(87, 192, 87);
-    height: 30px;
+    height: 20px;
     transform: rotate(-45deg);
-    width: 30px;
+    width: 20px;
     position: relative;
 }
 
@@ -68,32 +68,32 @@
     content: "";
     background-color: rgb(87, 192, 87);
     border-radius: 50%;
-    height: 30px;
+    height: 20px;
     position: absolute;
-    width: 30px;
+    width: 20px;
 }
 
 .heart2:before {
-    top: -17px;
+    top: -12px;
 }
 
 .heart2:after {
-    left: 17px;
+    left: 12px;
 }
 .alinha2 {
     position: absolute;
-    top: 35px;
-    left: 30px;
-    transform: rotate(43deg);
+    top: 28px;
+    left: 23px;
+    transform: rotate(45deg);
 }
 
 
 .heart3 {
-    margin: 30px;
+    margin: 20px;
     background-color: rgb(87, 192, 87);
-    height: 30px;
+    height: 20px;
     transform: rotate(-45deg);
-    width: 30px;
+    width: 20px;
     position: relative;
 }
 
@@ -102,26 +102,26 @@
     content: "";
     background-color: rgb(87, 192, 87);
     border-radius: 50%;
-    height: 30px;
+    height: 20px;
     position: absolute;
-    width: 30px;
+    width: 20px;
 }
 
 .heart3:before {
-    top: -17px;
+    top: -12px;
 }
 
 .heart3:after {
-    left: 17px;
+    left: 12px;
 }
 
 
 .heart4 {
-    margin: 30px;
+    margin: 20px;
     background-color: green;
-    height: 30px;
+    height: 20px;
     transform: rotate(-45deg);
-    width: 30px;
+    width: 20px;
     position: relative;
 }
 
@@ -130,30 +130,30 @@
     content: "";
     background-color: green;
     border-radius: 50%;
-    height: 30px;
+    height: 20px;
     position: absolute;
-    width: 30px;
+    width: 20px;
 }
 
 .heart4:before {
-    top: -17px;
+    top: -12px;
 }
 
 .heart4:after {
-    left: 17px;
+    left: 12px;
 }
 
 .alinha3 {
     position: absolute;
-    top: 35px;
-    left: -14px;
+    top: 28px;
+    left: -7px;
     transform: rotate(225deg);
 }
 
 
 .alinha4 {
     position: absolute;
-    top: 58px;
+    top: 44px;
     left: 8px;
     transform: rotate(133deg);
 }
