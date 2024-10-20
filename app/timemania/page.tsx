@@ -107,7 +107,7 @@ export default function TimemaniaCard() {
           })}
         </h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
-        <ul className="flex space-x-3 my-4 justify-center">
+        <ul className="flex flex-wrap justify-center">
           {data?.dezenas.map((numero) => (
             <Bolas key={numero} cor={"bg-green-600"} numero={numero} />
           ))}

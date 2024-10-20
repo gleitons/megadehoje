@@ -1,11 +1,12 @@
 
 .container {
     position: relative;
-    /* border-bottom: rgb(192, 192, 192) 2px solid; */
     box-shadow: gray 0px 0px 6px 0px;
     height: 100px;
     display: flex;
     background-color: rgb(247, 247, 247);
+  
+  
 }
 .oLogo {
     margin-bottom: 30px;

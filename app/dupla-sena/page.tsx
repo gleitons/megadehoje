@@ -107,13 +107,13 @@ export default function DuplaSenaCard() {
           })}
         </h1>
         <h3 className="text-lg font-bold text-gray-700">1º Sorteio:</h3>
-        <ul className="flex space-x-3 my-4 justify-center">
+        <ul className="flex flex-wrap justify-center">
           {Array.isArray(data?.dezenasOrdemSorteio) && data.dezenasOrdemSorteio.map((numero) => (
             <Bolas key={numero} cor={"bg-red-600"} numero={numero} />
           ))}
         </ul>
         <h3 className="text-lg font-bold text-gray-700">2º Sorteio:</h3>
-        <ul className="flex space-x-3 my-4 justify-center">
+        <ul className="flex flex-wrap justify-center">
           {Array.isArray(data?.dezenas) && data.dezenasOrdemSorteio.map((numero) => (
             <Bolas key={numero} cor={"bg-red-600"} numero={numero} />
           ))}

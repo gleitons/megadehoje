@@ -103,7 +103,7 @@ export default function MegaSenaCard() {
       <h3 className="text-lg text-gray-500 text-center ">:Próximo Sorteio:</h3>
       <h1 className="text-2xl font-bold text-center text-gray-700">{data?.valorEstimadoProximoConcurso.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}:</h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
-        <ul className="flex space-x-3 my-4">
+        <ul className="flex flexx-wrap justify-center">
           {data?.dezenas.map((numero) => (
             <Bolas key={numero} cor={"bg-green-600"} numero={numero} />
           ))}

@@ -46,11 +46,11 @@ export default function DiaDeSorteCard() {
     fetchDiaDeSorte();
   }, []);
 
-  if (loading) return <MegaS cor={"orange"} />;
+  if (loading) return <MegaS cor={"yellow"} />;
   if (error)
     return (
       <p>
-        <BotaoVoltar cor={"bg-orange-600"} /> <br />
+        <BotaoVoltar cor={"bg-yellow-500"} /> <br />
         Erro: Atualize a página Novamente - {error}
       </p>
     );
@@ -80,13 +80,15 @@ export default function DiaDeSorteCard() {
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <BotaoVoltar cor={"bg-orange-600"} />
+      <BotaoVoltar cor={"bg-yellow-500"} />
       <div>
-        <br />
+        <h1 className=" text-2xl font-bold text-center">
+          DIA DE SORTE
+        </h1>
       </div>
-      <div className="bg-orange-600 p-4">
+      <div className="bg-yellow-500 p-4">
         <h1 className="text-white text-2xl font-bold text-center">
-          {data?.acumulado ? "ACUMULOU" : "GANHADORES"}
+          {data?.premiacoes[0]?.ganhadores === 0 ? "ACUMULOU" : "GANHADORES"}
         </h1>
         <h2 className="text-white text-xl font-bold text-center">
           Dia de Sorte - Concurso {data?.concurso}
@@ -110,13 +112,13 @@ export default function DiaDeSorteCard() {
           })}
         </h1>
         <h3 className="text-lg font-bold text-gray-700">Números Sorteados:</h3>
-        <ul className="flex space-x-3 my-4 justify-center">
+        <ul className="flex flex-wrap justify-center">
           {data?.dezenas.map((numero) => (
-            <Bolas key={numero} cor={"bg-orange-600"} numero={numero} />
+            <Bolas key={numero} cor={"bg-yellow-500"} numero={numero} />
           ))}
         </ul>
         <h3 className="text-lg font-bold text-gray-700">Mês Sorteado:</h3>
-        <p className="text-center text-orange-600 text-2xl font-bold">
+        <p className="text-center text-yellow-500 text-2xl font-bold">
           {data?.mesSorteado}
         </p>
       </div>
@@ -187,7 +189,7 @@ export default function DiaDeSorteCard() {
           </p>
         )}
 
-        <p className="mt-4 text-center text-white bg-orange-600 p-2 rounded-lg">
+        <p className="mt-4 text-center text-white bg-yellow-500 p-2 rounded-lg">
           Próximo sorteio! {dataHoje()}
         </p>
       </div>
